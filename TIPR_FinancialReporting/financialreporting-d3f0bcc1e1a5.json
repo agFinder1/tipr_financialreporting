@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "financialreporting-290919",
+  "private_key_id": "d3f0bcc1e1a584b65b1b2018828771cbe2933a74",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCUE5fexq+ARF+n\ndZuwq8PxjQ7dHjZ9sR/shH9wdeNacPf8iDwWmCsjzXGgi29Gtnz9TAbAfwbGvErW\nhrgaZNOPu6oiO77KTtXgNk7E9LIQB61lkTRTXUrUwUu50Mdk1MFb32McvPWtbF+g\n71vjnaQ84NebRC9rwWRNABZmRJmSDCsJ8r5iSX9kpUDMoS674U1OEs86Dn5PY0nA\nE97HNj5athS2sdy1D589RfAzGh/CFTadyjN08MS9eAHHm4z4UfXUlZD1Lmuf+CNC\nLFhUIpR0FHKWGyT6FpcbFhteLjBqeWPK0TbFdU5SxKbhZQ1pGiUsW0gXtOpqusZF\nytvW5+hBAgMBAAECggEAEB+SCc/YjD7lq3ZC3ZnWXBbf53PCuyzuLPLAbZ5ogxCJ\n8BVldZBcIinclX6ZPznfojUFBzDNrBYUkAdbRIR2BNCKVe/rdlvfLeq76PY77ULo\nvoZxDCK8Yy4o8LKrA2+nHjnUsOxiU9/ZCc0GVGJ136sbzuw9vZ3xLfE0fy45Co3e\nIjSAuez3SRJVHRGpl7mTDchgw7n7v/VsrvaFHTh/B/T98V8rf0xjz7UMajl7DZqz\nNNv15Jtv15m7qyHl9VVJoHCyK9rlWnMZ1YYEEd3EPp33xWkiU3ojRYIUnRj4y4tn\n4PZ9HTAf0i3sTq2FDh5QMSERRSY9l9N25Y5i8o+XgQKBgQDQa5hkWvWtXtN2eQGb\nSrAseBGgq+dQ/UUj7tfhNiBYDDvgiEXjTdvpf83plGX7hX/HyIlHXKoOgoG9ei/s\nEi/CEtLjaIb/OIxBT81lmTO0KfczO018hjV4yiMh9oapaeDr1mtuZU00m+89wzVJ\nzuKlVb5v7VgZX8eO/U0v3g/GlwKBgQC14WpReaJp6exCT++yGdTnLERkE4Hi61TM\nHgjCT7x90uzKVrRoz/Wbef56l5qyVQ8XBziAKgWw9Jdw5jB34tw2a92P01wv8XMw\n2R7kGQBzXGcQKo49z9hENlqA5XHvToH1yfsW4WdYxUOr0qQmfD+YijoIKF8Dn5Nn\nv7EGoO665wKBgQC+e+feqIdrOYR4/eUrAdr7+Yza1OHn0mJzkeI6EhcDgcLj1ohR\nU6KOyODv/1Ipy/xaInzc/OLruflLrDXKQ2DktgGKF8lxz0PYmU/28Esh+UzVxPhv\nu9V5HP15F/BBO+R2hxTO48TpNS81uoikeXIJe9E+SKTBJBmmJPl7qy+t5wKBgFYr\nyD11zXc0txTr3nqZNn+YP4bSnzUtne1fRXMaaAmNB1cOIUePT6Qr9l+KuGZJWm7k\nouZGApBGMgHxbYE/YGoATOa5kvG8CYFZPQOAvO/rFYFZSC8M7D/VKKftDT/+CCC1\nY1sBy/8I5vjfQZpiP5c71ibLScjjr+j1rx+e27x9AoGBAKIziIm1JIllslg2DcQZ\n2ItnybKIQ7HcQqWXO3o+0riHl+8+Pmwcmd024ox7yUF3QGbrhojNJthfXqCL4DoB\nncblgbtIA7Zvt19t+NSraP+Q98oDnVAjnQBNIy1sF2MGH7Wg8hTMycVTtwFD+AZw\nMJO3ecHd36SYbN1cJqtP4FHW\n-----END PRIVATE KEY-----\n",
+  "client_email": "drive-csharp-api@financialreporting-290919.iam.gserviceaccount.com",
+  "client_id": "101009170487597778357",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/drive-csharp-api%40financialreporting-290919.iam.gserviceaccount.com"
+}
