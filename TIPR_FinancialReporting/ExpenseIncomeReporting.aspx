@@ -32,7 +32,7 @@
 					<asp:RegularExpressionValidator runat="server" ID="regNumericExpAmount" ControlToValidate="txtExpenseAmount" 
 							ValidationExpression="\d+" Display="Dynamic" ErrorMessage="* whole numbers only">
 					</asp:RegularExpressionValidator>
-					Date: <asp:TextBox runat="server" TextMode="Date"></asp:TextBox>
+					Date: <asp:TextBox ID="ExpenseDate" runat="server" TextMode="Date"></asp:TextBox>
 				</asp:TableCell>
 			</asp:TableRow>
 			<asp:TableRow>
@@ -66,7 +66,7 @@
 					<asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator1" ControlToValidate="txtExpenseAmount" 
 							ValidationExpression="\d+" Display="Dynamic" ErrorMessage="* whole numbers only">
 					</asp:RegularExpressionValidator>
-					Date: <asp:TextBox runat="server" TextMode="Date"></asp:TextBox>
+					Date: <asp:TextBox ID="IncomeDate" runat="server" TextMode="Date"></asp:TextBox>
 				</asp:TableCell>
 			</asp:TableRow>
 			<asp:TableRow>

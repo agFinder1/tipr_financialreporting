@@ -49,6 +49,15 @@ namespace TIPR_FinancialReporting {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator regNumericExpAmount;
         
         /// <summary>
+        /// ExpenseDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ExpenseDate;
+        
+        /// <summary>
         /// txtExpenseNotes control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace TIPR_FinancialReporting {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
+        /// IncomeDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox IncomeDate;
         
         /// <summary>
         /// txtIncomeNotes control.

@@ -11,7 +11,8 @@ namespace TIPR_FinancialReporting
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			ExpenseDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+			IncomeDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
 		}
 
 		protected void TextBox1_TextChanged(object sender, EventArgs e)
