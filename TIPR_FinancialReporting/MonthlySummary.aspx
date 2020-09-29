@@ -40,25 +40,18 @@
 			</asp:DropDownList>
         </div>
 
-		<div class="div_Member font_Main" style="width:350px;border-width:0px">
-					<asp:GridView ID="grdMonthlyExpenses" runat="server" CssClass="mGrid"
-						HeaderStyle-HorizontalAlign="Center"
-						HeaderStyle-BackColor="#ffffff"
-						HeaderStyle-ForeColor="White"
-						RowStyle-BackColor="#c6ffee"
-						RowStyle-ForeColor="White"
-						AlternatingRowStyle-BackColor="LightBlue" Font-Size="Small"
-						HorizontalAlign="Left" 
-						OnSelectedIndexChanged="grdMonthlyExpenses_SelectedIndexChanged" OnRowCreated="grdMonthlyExpenses_RowCreated" OnRowDataBound="grdMonthlyExpenses_RowDataBound"
-						OnPageIndexChanging="grdMonthlyExpenses_PageIndexChanging"
-						AutoGenerateColumns="True" 
-						AllowPaging="true"
-						PagerSettings-FirstPageText="First" PagerSettings-PageButtonCount="2" PageSize="10" AllowSorting="True" 
-						PagerSettings-Mode="NumericFirstLast" PagerSettings-LastPageText="Last" PagerSettings-NextPageText="&gt;" 
-						PagerSettings-PreviousPageText="&lt;" PagerStyle-BorderStyle="None" ForeColor="Black">
-
+		<div id="grids" runat="server" visible="false" class="div_Member font_Main" style="width:350px;border-width:0px">
+			Expenses:<br />
+					<asp:GridView ID="grdMonthlyExpenses" runat="server" CssClass="mGrid" ShowHeader="false" GridLines="None"
+						OnRowDataBound="grdMonthlyExpenses_RowDataBound"
+					>
 					</asp:GridView>
-
+			<br /><br />
+			Income:<br />
+					<asp:GridView ID="grdMonthlyIncome" runat="server" CssClass="mGrid" ShowHeader="false" GridLines="None"
+						OnRowDataBound="grdMonthlyExpenses_RowDataBound"
+					>
+					</asp:GridView>
 		</div>
     </form>
 </body>

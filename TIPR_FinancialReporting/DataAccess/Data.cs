@@ -115,9 +115,9 @@ namespace TIPR_FinancialReporting.DataAccess
 			return dt;
 		}
 
-		public static DataSet GetMonthlyExpenseSummary(int monthId, int yearId)
+		public static DataTable GetMonthlyExpenseSummary(int monthId, int yearId)
 		{
-			DataSet dt;
+			DataTable dt;
 			try
 			{
 				using (SqlConnection cnn = new SqlConnection(ConnString()))
@@ -128,7 +128,7 @@ namespace TIPR_FinancialReporting.DataAccess
 						cmd.CommandType = CommandType.StoredProcedure;
 						cmd.Parameters.AddWithValue("monthId", monthId);
 						cmd.Parameters.AddWithValue("yearId", yearId);
-						dt = new DataSet();
+						dt = new DataTable();
 						using (SqlDataAdapter da = new SqlDataAdapter(cmd))
 						{
 							da.Fill(dt);
@@ -141,7 +141,34 @@ namespace TIPR_FinancialReporting.DataAccess
 			return null;
 		}
 
-public static int CreateTransaction(int TransactionTypeId, int TopCategoryId, 
+		public static DataTable GetMonthlyIncomeSummary(int monthId, int yearId)
+		{
+			DataTable dt;
+			try
+			{
+				using (SqlConnection cnn = new SqlConnection(ConnString()))
+				{
+					using (SqlCommand cmd = new SqlCommand("GetMonthlyIncomeSummary", cnn))
+					{
+						cmd.Connection.Open();
+						cmd.CommandType = CommandType.StoredProcedure;
+						cmd.Parameters.AddWithValue("monthId", monthId);
+						cmd.Parameters.AddWithValue("yearId", yearId);
+						dt = new DataTable();
+						using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+						{
+							da.Fill(dt);
+							return dt;
+						}
+					}
+				}
+			}
+			catch (Exception ex) { }
+			return null;
+		}
+
+
+		public static int CreateTransaction(int TransactionTypeId, int TopCategoryId, 
 			int SubCategoryId, int Amount, string Notes, DateTime TransactionDate)
 		{
 			int retVal = 0;

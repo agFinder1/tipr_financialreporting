@@ -21,52 +21,27 @@ namespace TIPR_FinancialReporting
 
 		private void GetMonthlySummary_Expenses(int monthId, int yearId)
 		{
-			DataSet ds = Data.GetMonthlyExpenseSummary(monthId, yearId);
-			DataRow newDr = null;
-			DataTable newDt = new DataTable();
-
-			if(ds.Tables.Count == 2)
-			{
-				DataTable dt = ds.Tables[0];
-
-				//if(dt.Rows.Count > 0)
-				//{
-				//	foreach(DataRow dr in dt.Rows)
-				//	{
-				//		// add a header row
-				//		newDr = newDt.NewRow();
-				//		newDr["RowNumber"] = newDt.Rows.Count + 1;
-				//	}
-				//}
-
-				dt = ds.Tables[1];
-				newDt = new DataTable();
-
-				if(dt.Rows.Count > 0)
-				{
-					for(int i = 1; i < dt.Rows.Count; i++)
-					{
-						newDr = dt.Rows[i];
-						newDt.Rows.Add(newDr);
-					}
-					grdMonthlyExpenses.DataSource = newDt;
-					grdMonthlyExpenses.DataBind();
-				}
-			}
+			grdMonthlyExpenses.DataSource = Data.GetMonthlyExpenseSummary(monthId, yearId);
+			grdMonthlyExpenses.DataBind();
 		}
 
 		private void GetMonthySummary_Income(int monthId, int yearId)
 		{
-
+			grdMonthlyIncome.DataSource = Data.GetMonthlyIncomeSummary(monthId, yearId);
+			grdMonthlyIncome.DataBind();
 		}
 
 		protected void ddlMonth_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			try
 			{
-				GetMonthlySummary_Expenses(Convert.ToInt16(ddlMonth.SelectedValue), Convert.ToInt16(ddlYear.SelectedItem));
+				grdMonthlyExpenses.DataSource = null;
+				grdMonthlyExpenses.DataBind();
+				GetMonthlySummary_Expenses(Convert.ToInt16(ddlMonth.SelectedValue), Convert.ToInt16(ddlYear.SelectedItem.Text));
+				GetMonthySummary_Income(Convert.ToInt16(ddlMonth.SelectedValue), Convert.ToInt16(ddlYear.SelectedItem.Text));
+				grids.Visible = grdMonthlyExpenses.Rows.Count > 0 | grdMonthlyIncome.Rows.Count > 0;
 			}
-			catch(Exception ex) { }
+			catch (Exception ex) { }
 		}
 
 		protected void ddlYear_SelectedIndexChanged(object sender, EventArgs e)
@@ -89,7 +64,7 @@ namespace TIPR_FinancialReporting
 
 		protected void grdMonthlyExpenses_RowDataBound(object sender, GridViewRowEventArgs e)
 		{
-
+			e.Row.BorderStyle = BorderStyle.None;
 		}
 
 		protected void grdMonthlyExpenses_PageIndexChanging(object sender, GridViewPageEventArgs e)

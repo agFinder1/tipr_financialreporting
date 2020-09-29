@@ -40,6 +40,15 @@ namespace TIPR_FinancialReporting {
         protected global::System.Web.UI.WebControls.DropDownList ddlYear;
         
         /// <summary>
+        /// grids control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl grids;
+        
+        /// <summary>
         /// grdMonthlyExpenses control.
         /// </summary>
         /// <remarks>
@@ -47,5 +56,14 @@ namespace TIPR_FinancialReporting {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdMonthlyExpenses;
+        
+        /// <summary>
+        /// grdMonthlyIncome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdMonthlyIncome;
     }
 }
