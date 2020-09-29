@@ -10,46 +10,8 @@
 <body>
     <form id="form1" runat="server">
 	<asp:ScriptManager runat="server" ID="mgr1"></asp:ScriptManager>
-		<div class="div_Member font_Main" style="width:230px">
-			<asp:UpdatePanel runat="server" ID="pnl1">
-				<ContentTemplate>
-					Income Category
-					<br />
-					<asp:DropDownList ID="ddlIncomeHeading" runat="server" OnSelectedIndexChanged="ddlIncomeHeading_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-					<asp:Table ID="tblIncome" runat="server" Width="250" Visible="false">
-						<asp:TableRow>
-							<asp:TableCell>
-								Sub-Category: <asp:DropDownList ID="ddlIncomeCategory" runat="server"></asp:DropDownList>
-							</asp:TableCell>
-						</asp:TableRow>
-						<asp:TableRow>
-							<asp:TableCell>
-								Amount:&nbsp;
-								<asp:TextBox ID="txtIncomeAmount" runat="server" Width="40px"></asp:TextBox>
-								<asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator2" ControlToValidate="txtExpenseAmount" 
-										ValidationExpression="\d+" Display="Dynamic" ForeColor="Red" ErrorMessage="whole numbers">
-								</asp:RegularExpressionValidator>							
-							</asp:TableCell>
-						</asp:TableRow>
-						<asp:TableRow>
-							<asp:TableCell>
-								Date: <asp:TextBox ID="txtIncomeDate" runat="server" TextMode="Date" Width="130"></asp:TextBox>
-							</asp:TableCell>
-						</asp:TableRow>
-						<asp:TableRow>
-							<asp:TableCell>
-								Note: <asp:TextBox ID="txtIncomeNotes" runat="server" Width="130"></asp:TextBox>
-							</asp:TableCell>
-						</asp:TableRow>
-					</asp:Table>
-				</ContentTemplate>
-				<Triggers>
-					<asp:AsyncPostBackTrigger ControlID="ddlIncomeHeading" EventName="SelectedIndexChanged" />
-				</Triggers>
-			</asp:UpdatePanel>
-		</div>
 
-		<div class="div_Member font_Main" style="width:230px">
+		<div id="divExpenses" class="div_Member font_Main" style="width:230px">
 			<asp:UpdatePanel runat="server" ID="pnl2">
 				<ContentTemplate>
 					Expense Category
@@ -89,15 +51,64 @@
 				</Triggers>
 			</asp:UpdatePanel>
 		</div>
+
+		<div id="divIncome" class="div_Member font_Main" style="width:230px">
+			<asp:UpdatePanel runat="server" ID="pnl1">
+				<ContentTemplate>
+					Income Category
+					<br />
+					<asp:DropDownList ID="ddlIncomeHeading" runat="server" OnSelectedIndexChanged="ddlIncomeHeading_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+					<asp:Table ID="tblIncome" runat="server" Width="250" Visible="false">
+						<asp:TableRow>
+							<asp:TableCell>
+								Sub-Category: <asp:DropDownList ID="ddlIncomeCategory" runat="server"></asp:DropDownList>
+							</asp:TableCell>
+						</asp:TableRow>
+						<asp:TableRow>
+							<asp:TableCell>
+								Amount:&nbsp;
+								<asp:TextBox ID="txtIncomeAmount" runat="server" Width="40px"></asp:TextBox>
+								<asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator2" ControlToValidate="txtExpenseAmount" 
+										ValidationExpression="\d+" Display="Dynamic" ForeColor="Red" ErrorMessage="whole numbers">
+								</asp:RegularExpressionValidator>							
+							</asp:TableCell>
+						</asp:TableRow>
+						<asp:TableRow>
+							<asp:TableCell>
+								Date: <asp:TextBox ID="txtIncomeDate" runat="server" TextMode="Date" Width="130"></asp:TextBox>
+							</asp:TableCell>
+						</asp:TableRow>
+						<asp:TableRow>
+							<asp:TableCell>
+								Note: <asp:TextBox ID="txtIncomeNotes" runat="server" Width="130"></asp:TextBox>
+							</asp:TableCell>
+						</asp:TableRow>
+					</asp:Table>
+
+				</ContentTemplate>
+				<Triggers>
+					<asp:AsyncPostBackTrigger ControlID="ddlIncomeHeading" EventName="SelectedIndexChanged" />
+				</Triggers>
+			</asp:UpdatePanel>
+		</div>
+
 		<div class="div_Member font_Main" style="width:230px">
 			<asp:Table runat="server" Width="200">
 				<asp:TableRow>
 					<asp:TableCell HorizontalAlign="Center">
     					<asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+						<br />
+						<asp:Label runat="server" ID="lblExpenseCreated" ForeColor="Blue" Text="Expense Transaction Created" Visible="false"></asp:Label>
+						<asp:Label runat="server" ID="lblIncomeCreated" ForeColor="Blue" Text="Income Transaction Created" Visible="false"></asp:Label>
+						<asp:Label runat="server" ID="lblNoExpenseAmount" ForeColor="Red" Text="No Expense Transaction Created, Needs Amount" Visible="false"></asp:Label>
+						<asp:Label runat="server" ID="lblNoIncomeAmount" ForeColor="Blue" Text="No Income Transaction Created, Needs Amount" Visible="false"></asp:Label>
+						<asp:Label runat="server" ID="lblErrorExpense" ForeColor="Red" Text="No Expense Transaction Created, An Error Occurred" Visible="false"></asp:Label>
+						<asp:Label runat="server" ID="lblErrorIncome" ForeColor="Red" Text="No Income Transaction Created, An Error Occurred" Visible="false"></asp:Label>
 					</asp:TableCell>
 				</asp:TableRow>
 			</asp:Table>
 		</div>
+		<asp:Timer ID="tmrLabels" runat="server" Interval="3000" OnTick="tmrLabels_Tick" Enabled="false" />
     </form>
 </body>
 </html>

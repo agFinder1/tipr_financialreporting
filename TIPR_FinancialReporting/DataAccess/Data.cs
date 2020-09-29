@@ -67,6 +67,7 @@ namespace TIPR_FinancialReporting.DataAccess
 			catch (Exception ex) { string s = ex.Message; }
 			return dt;
 		}
+
 		public static DataTable GetIncomeCategoryHeadings()
 		{
 			DataTable dt = new DataTable();
@@ -112,6 +113,34 @@ namespace TIPR_FinancialReporting.DataAccess
 			}
 			catch (Exception ex) { string s = ex.Message; }
 			return dt;
+		}
+
+		public static int CreateTransaction(int TransactionTypeId, int TopCategoryId, int SubCategoryId, int Amount, string Notes, DateTime TransactionDate)
+		{
+			int retVal = 0;
+			try
+			{
+				using (SqlConnection cnn = new SqlConnection(ConnString()))
+				{
+					using (SqlCommand cmd = new SqlCommand("CreateTransaction", cnn))
+					{
+						cmd.Connection.Open();
+						cmd.CommandType = CommandType.StoredProcedure;
+						cmd.Parameters.AddWithValue("TransactionTypeId", TransactionTypeId);
+						cmd.Parameters.AddWithValue("TopCategoryId", TopCategoryId);
+						cmd.Parameters.AddWithValue("SubCategoryId", SubCategoryId);
+						cmd.Parameters.AddWithValue("Amount", Amount);
+						cmd.Parameters.AddWithValue("Notes", Notes);
+						cmd.Parameters.AddWithValue("TransactionDate", TransactionDate);
+						cmd.Parameters.Add("@returnValue", SqlDbType.Int);
+						cmd.Parameters["@returnValue"].Direction = ParameterDirection.Output;
+						cmd.ExecuteNonQuery();
+						retVal = Convert.ToInt16(cmd.Parameters["@returnValue"].Value);
+					}
+				}
+			}
+			catch (Exception ex) { string s = ex.Message; }
+			return retVal;
 		}
 	}
 }

@@ -32,6 +32,48 @@ namespace TIPR_FinancialReporting
 
 		protected void btnSubmit_Click(object sender, EventArgs e)
 		{
+			if(ddlExpenseHeading.SelectedIndex > 0)
+			{
+				if(txtExpenseAmount.Text.Length == 0)
+				{
+					lblNoExpenseAmount.Visible = true;
+				}
+				else
+				{
+					if(Data.CreateTransaction(1, Convert.ToInt16(ddlExpenseHeading.SelectedItem.Value), Convert.ToInt16(ddlExpenseCategory.SelectedItem.Value), 
+						Convert.ToInt32(txtExpenseAmount.Text), txtExpenseNotes.Text, Convert.ToDateTime(txtExpenseDate.Text)) == 0)
+					{
+						lblExpenseCreated.Visible = true;
+					}
+					else
+					{
+						lblErrorExpense.Visible = true;
+					}
+				}
+			}
+
+			if(ddlIncomeHeading.SelectedIndex > 0)
+			{
+				if (txtIncomeAmount.Text.Length == 0)
+				{
+					lblNoIncomeAmount.Visible = true;
+				}
+				else
+				{
+					if (Data.CreateTransaction(2, Convert.ToInt16(ddlIncomeHeading.SelectedItem.Value), Convert.ToInt16(ddlIncomeCategory.SelectedItem.Value),
+						Convert.ToInt32(txtIncomeAmount.Text), txtIncomeNotes.Text, Convert.ToDateTime(txtIncomeDate.Text)) == 0)
+					{
+						lblIncomeCreated.Visible = true;
+					}
+					else
+					{
+						lblErrorIncome.Visible = true;
+					}
+				}
+			}
+
+			tmrLabels.Enabled = lblExpenseCreated.Visible | lblIncomeCreated.Visible | lblErrorExpense.Visible | 
+				lblErrorIncome.Visible | lblNoExpenseAmount.Visible | lblNoIncomeAmount.Visible;
 
 		}
 
@@ -44,6 +86,11 @@ namespace TIPR_FinancialReporting
 				ddlExpenseCategory.DataSource = Data.GetExpenseCategories(Convert.ToInt16(ddlExpenseHeading.SelectedItem.Value));
 				ddlExpenseCategory.DataTextField = "Category";
 				ddlExpenseCategory.DataBind();
+			}
+			else
+			{
+				txtExpenseAmount.Text = string.Empty;
+				txtExpenseDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
 			}
 			
 		}
@@ -58,6 +105,20 @@ namespace TIPR_FinancialReporting
 				ddlIncomeCategory.DataValueField = "Category";
 				ddlIncomeCategory.DataBind();
 			}
+			else
+			{
+				txtIncomeAmount.Text = string.Empty;
+				txtIncomeDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+			}
+		}
+
+		protected void tmrLabels_Tick(object sender, EventArgs e)
+		{
+			tmrLabels.Enabled = false;
+			lblExpenseCreated.Visible = false;
+			lblIncomeCreated.Visible = false;
+			lblNoExpenseAmount.Visible = false;
+			lblNoIncomeAmount.Visible = false;
 		}
 	}
 }
