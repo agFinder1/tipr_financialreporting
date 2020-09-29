@@ -20,7 +20,8 @@
 					<asp:Table ID="tblExpense" runat="server" Width="250" Visible="false">
 						<asp:TableRow>
 							<asp:TableCell>
-								Sub-Category: <asp:DropDownList ID="ddlExpenseCategory" runat="server"/>
+								Sub-Category
+								<br /><asp:DropDownList ID="ddlExpenseCategory" runat="server"/>
 							</asp:TableCell>
 						</asp:TableRow>
 						<asp:TableRow>
@@ -61,7 +62,8 @@
 					<asp:Table ID="tblIncome" runat="server" Width="250" Visible="false">
 						<asp:TableRow>
 							<asp:TableCell>
-								Sub-Category: <asp:DropDownList ID="ddlIncomeCategory" runat="server"></asp:DropDownList>
+								Sub-Category
+								<br /><asp:DropDownList ID="ddlIncomeCategory" runat="server"></asp:DropDownList>
 							</asp:TableCell>
 						</asp:TableRow>
 						<asp:TableRow>
@@ -92,23 +94,22 @@
 			</asp:UpdatePanel>
 		</div>
 
-		<div class="div_Member font_Main" style="width:230px">
+		<div class="div_Member font_Main" style="width:230px; border-width:0px;">
 			<asp:Table runat="server" Width="200">
 				<asp:TableRow>
 					<asp:TableCell HorizontalAlign="Center">
-    					<asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
-						<br />
-						<asp:Label runat="server" ID="lblExpenseCreated" ForeColor="Blue" Text="Expense Transaction Created" Visible="false"></asp:Label>
-						<asp:Label runat="server" ID="lblIncomeCreated" ForeColor="Blue" Text="Income Transaction Created" Visible="false"></asp:Label>
-						<asp:Label runat="server" ID="lblNoExpenseAmount" ForeColor="Red" Text="No Expense Transaction Created, Needs Amount" Visible="false"></asp:Label>
-						<asp:Label runat="server" ID="lblNoIncomeAmount" ForeColor="Blue" Text="No Income Transaction Created, Needs Amount" Visible="false"></asp:Label>
-						<asp:Label runat="server" ID="lblErrorExpense" ForeColor="Red" Text="No Expense Transaction Created, An Error Occurred" Visible="false"></asp:Label>
-						<asp:Label runat="server" ID="lblErrorIncome" ForeColor="Red" Text="No Income Transaction Created, An Error Occurred" Visible="false"></asp:Label>
+    					<asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" /><br />
+						<asp:Label runat="server" ID="lblExpenseCreated" ForeColor="Blue" Text="*Expense Transaction Created" Visible="false"></asp:Label><br />
+						<asp:Label runat="server" ID="lblIncomeCreated" ForeColor="Blue" Text="*Income Transaction Created" Visible="false"></asp:Label><br />
+						<asp:Label runat="server" ID="lblNoExpenseAmount" ForeColor="Red" Text="*Expense Amount Missing" Visible="false"></asp:Label><br />
+						<asp:Label runat="server" ID="lblNoIncomeAmount" ForeColor="Red" Text="*Income Amount Missing" Visible="false"></asp:Label><br />
+						<asp:Label runat="server" ID="lblErrorExpense" ForeColor="Red" Text="*Error Posting Expense" Visible="false"></asp:Label><br />
+						<asp:Label runat="server" ID="lblErrorIncome" ForeColor="Red" Text="*Error Posting Income" Visible="false"></asp:Label>
 					</asp:TableCell>
 				</asp:TableRow>
 			</asp:Table>
 		</div>
-		<asp:Timer ID="tmrLabels" runat="server" Interval="3000" OnTick="tmrLabels_Tick" Enabled="false" />
+		<asp:Timer ID="tmrLabels" runat="server" Interval="4000" OnTick="tmrLabels_Tick" Enabled="false" />
     </form>
 </body>
 </html>

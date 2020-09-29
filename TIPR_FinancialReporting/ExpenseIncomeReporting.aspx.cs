@@ -41,9 +41,11 @@ namespace TIPR_FinancialReporting
 				else
 				{
 					if(Data.CreateTransaction(1, Convert.ToInt16(ddlExpenseHeading.SelectedItem.Value), Convert.ToInt16(ddlExpenseCategory.SelectedItem.Value), 
-						Convert.ToInt32(txtExpenseAmount.Text), txtExpenseNotes.Text, Convert.ToDateTime(txtExpenseDate.Text)) == 0)
+						Convert.ToInt32(txtExpenseAmount.Text), txtExpenseNotes.Text, Convert.ToDateTime(txtExpenseDate.Text)) > 0)
 					{
 						lblExpenseCreated.Visible = true;
+						ddlExpenseHeading.SelectedIndex = 0;
+						ddlExpenseHeading_SelectedIndexChanged(null, null);
 					}
 					else
 					{
@@ -61,9 +63,11 @@ namespace TIPR_FinancialReporting
 				else
 				{
 					if (Data.CreateTransaction(2, Convert.ToInt16(ddlIncomeHeading.SelectedItem.Value), Convert.ToInt16(ddlIncomeCategory.SelectedItem.Value),
-						Convert.ToInt32(txtIncomeAmount.Text), txtIncomeNotes.Text, Convert.ToDateTime(txtIncomeDate.Text)) == 0)
+						Convert.ToInt32(txtIncomeAmount.Text), txtIncomeNotes.Text, Convert.ToDateTime(txtIncomeDate.Text)) > 0)
 					{
 						lblIncomeCreated.Visible = true;
+						ddlIncomeHeading.SelectedIndex = 0;
+						ddlIncomeHeading_SelectedIndexChanged(null, null);
 					}
 					else
 					{
@@ -85,14 +89,15 @@ namespace TIPR_FinancialReporting
 			{
 				ddlExpenseCategory.DataSource = Data.GetExpenseCategories(Convert.ToInt16(ddlExpenseHeading.SelectedItem.Value));
 				ddlExpenseCategory.DataTextField = "Category";
+				ddlExpenseCategory.DataValueField = "Id";
 				ddlExpenseCategory.DataBind();
 			}
 			else
 			{
 				txtExpenseAmount.Text = string.Empty;
 				txtExpenseDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
-			}
-			
+				txtExpenseNotes.Text = string.Empty;
+			}	
 		}
 
 		protected void ddlIncomeHeading_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,13 +107,15 @@ namespace TIPR_FinancialReporting
 			if(tblIncome.Visible)
 			{
 				ddlIncomeCategory.DataSource = Data.GetIncomeCategories(Convert.ToInt16(ddlIncomeHeading.SelectedItem.Value));
-				ddlIncomeCategory.DataValueField = "Category";
+				ddlIncomeCategory.DataTextField = "Category";
+				ddlIncomeCategory.DataValueField = "Id";
 				ddlIncomeCategory.DataBind();
 			}
 			else
 			{
 				txtIncomeAmount.Text = string.Empty;
 				txtIncomeDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+				txtIncomeNotes.Text = string.Empty;
 			}
 		}
 
