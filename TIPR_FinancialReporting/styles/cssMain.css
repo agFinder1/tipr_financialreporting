@@ -1,0 +1,321 @@
+﻿body {
+}
+
+.buttonMain {
+	border-radius: 5px;
+	border: 2px solid #73AD21;
+	background-color: #1EB9FB;
+	color: #005479;
+	padding: 20px;
+	width: 150px;
+	height: 5px;
+}
+
+.div_AddClass {
+	width: 200px;
+	height: 150px;
+}
+
+.div_AddSchool {
+	width: 400px;
+	height: 100px;
+}
+
+.div_BlogPosts {
+	border-radius: 10px;
+	border: 2px solid #0094D6;
+	height: 200px;
+	width: 400px;
+	overflow-y: scroll;
+	color: black;
+	background: #F7F7F7;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.div_ExistingMember {
+	padding: 20px;
+	width: 400px;
+	height: 160px;
+}
+
+.div_FundingSources {
+	margin-left: 200px;
+	margin-top: 200px;
+	display: block;
+	position: absolute
+}
+
+.div_Member {
+	border-radius: 25px;
+	/*border: 2px solid #0094D6;*/
+	border: 2px solid #7D3E1B;
+	padding: 20px;
+	background: #ffffff;
+	width: 60%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.div_Messages {
+	height: 300px;
+}
+
+.div_NewMember {
+	width: 400px;
+	height: 280px;
+}
+
+.div_NewMemberInfo {
+	padding: 20px;
+	width: 1000px;
+	height: 1030px;
+}
+
+.div_NewStudent {
+	width: 800px;
+	height: 480px;
+}
+
+.div_MessageArea {
+	float: right;
+	margin: auto;
+}
+
+.div_phone {
+	width: 300px;
+}
+
+.div_SearchResults {
+	padding: 20px;
+	width: 750px;
+	height: 320px;
+	border: 0px none;
+}
+
+.div_SelectedMemberInfo {
+	width: 850px;
+}
+
+.div_SpecificInfo {
+	padding: 20px;
+	width: 900px;
+	height: 100px;
+	border: none;
+}
+
+.div_Student {
+	width: 1130px;
+}
+
+.div_StudentInfo {
+	padding: 20px;
+	width: 750px;
+	height: 300px;
+}
+
+.div_StudentInternal {
+	border-radius: 25px;
+	border: 2px solid #0094D6;
+	padding: 20px;
+	background: #ffffff;
+	color: #7D3E1B;
+	width: 800px;
+}
+
+.div_StudentSearch {
+	padding: 20px;
+	width: 900px;
+	height: 770px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.div_StudentMain {
+	padding: 20px;
+	width: 1050px;
+	height: 870px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.div_TrustedResource {
+	width: 500px;
+}
+
+.font_BlogPost {
+}
+
+.font_Message {
+	font-weight: 500;
+	font-family: Tahoma, Calibri;
+	font-size: 14px;
+	color: #9D240C;
+}
+
+.font_MessageHeader {
+	font-style: italic;
+	font-size: smaller;
+	color: #474547;
+}
+
+.font_Main {
+	font-family: Tahoma, Calibri;
+	font-size: small;
+	color: #0094D6;
+}
+
+.font_Large {
+	font-size: large;
+}
+
+.frameMain {
+	border: none;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.headerRow {
+	font-weight: bold;
+	font-size: 24px;
+	/*text-align:center;*/
+}
+
+.lstBox_TRs {
+	overflow-x: scroll;
+	width: 270px;
+	height: 160px;
+	border-radius: 5px;
+	border: 2px solid #D6B200;
+	background: #F7F7F7;
+	color: #005098;
+	font-family: 'Arial Rounded MT'
+}
+
+.lstBox_Categories {
+	height: 250px;
+	overflow-x: scroll;
+	width: 200px;
+	border-radius: 5px;
+	border: 2px solid #D6B200;
+	background: #F7F7F7;
+	color: #005098;
+	font-family: 'Arial Rounded MT'
+}
+
+.normalRow {
+	text-align: left;
+}
+
+.mGrid {
+	width: 100%;
+	background-color: #fff;
+	margin: 5px 5px 10px 20px;
+	border: solid 1px #525252;
+	border-collapse: collapse;
+}
+
+	.mGrid td {
+		padding: 2px;
+		border: solid 1px #c1c1c1;
+		color: #717171;
+	}
+
+	.mGrid th {
+		padding: 4px 2px;
+		color: #fff;
+		background: #424242 url(images/grd_head.png) repeat-x top;
+		border-left: solid 1px #525252;
+		font-size: 0.9em;
+		border-radius: 4px;
+	}
+
+	.mGrid .alt {
+		background: #fcfcfc url(images/grd_alt.png) repeat-x top;
+	}
+
+	.mGrid .pgr {
+		background: #424242 url(images/grd_pgr.png) repeat-x top;
+	}
+
+		.mGrid .pgr table {
+			margin: 5px 0;
+		}
+
+		.mGrid .pgr td {
+			border-width: 0;
+			padding: 0 6px;
+			border-left: solid 1px #666;
+			font-weight: bold;
+			color: #fff;
+			line-height: 12px;
+		}
+
+		.mGrid .pgr a {
+			color: #666;
+			text-decoration: none;
+		}
+
+			.mGrid .pgr a:hover {
+				color: #000;
+				text-decoration: none;
+			}
+
+.cal {
+	background-color: aliceblue;
+}
+
+.rcorners2 {
+	border-radius: 25px;
+	border: 2px solid #73AD21;
+	padding: 20px;
+	width: 200px;
+	height: 150px;
+}
+
+.rcorners3 {
+	border-radius: 25px;
+	background: url(paper.gif);
+	background-position: left top;
+	background-repeat: repeat;
+	padding: 20px;
+	width: 200px;
+	height: 150px;
+}
+
+.tableCell {
+	font-family: Tahoma, Calibri;
+	font-size: small;
+}
+
+.tableCell_ListBox {
+	vertical-align: top;
+	width: 25%;
+}
+
+input[type=text] {
+	border-radius: 2px;
+	border: 1px solid #73AD21;
+	color: #222222;
+	font-family: 'Arial Rounded MT'
+}
+
+input[type=password] {
+	border-radius: 2px;
+	border: 1px solid #73AD21;
+	width: 150px;
+}
+
+input[type=submit] {
+	border-radius: 5px;
+	border: 2px solid #73AD21;
+	background-color: #EEEED3;
+	color: #505050;
+}
+
+	input[type=submit]:hover {
+		background-color: #D6B200;
+		border-radius: 5px;
+		border: 2px solid #007ACC;
+		color: black;
+	}
