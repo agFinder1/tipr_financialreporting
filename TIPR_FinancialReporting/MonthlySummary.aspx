@@ -9,8 +9,57 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="div_Member font_Main" style="width:350px;border-width:0px" >
+			<a href="Expenses_Annual.aspx">Annual Expenses</a>&nbsp;
+			<a href="Income_Annual.aspx">Annual Income</a>&nbsp;
+			<a href="AnnualSummary.aspx">Annual Summary</a>
         </div>
+        <div class="div_Member font_Main" style="width:350px">
+			<label style="margin-bottom:18px">Select a month and year:</label> 
+			<br />
+			Month: 
+			<asp:DropDownList runat="server" ID="ddlMonth" AutoPostBack="true" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
+				<asp:ListItem></asp:ListItem>
+				<asp:ListItem Value ="1">January</asp:ListItem>
+				<asp:ListItem Value ="2">February</asp:ListItem>
+				<asp:ListItem Value ="3">March</asp:ListItem>
+				<asp:ListItem Value ="4">April</asp:ListItem>
+				<asp:ListItem Value ="5">May</asp:ListItem>
+				<asp:ListItem Value ="6">June</asp:ListItem>
+				<asp:ListItem Value ="7">July</asp:ListItem>
+				<asp:ListItem Value ="8">August</asp:ListItem>
+				<asp:ListItem Value ="9">September</asp:ListItem>
+				<asp:ListItem Value ="10">October</asp:ListItem>
+				<asp:ListItem Value ="11">November</asp:ListItem>
+				<asp:ListItem Value ="12">December</asp:ListItem>
+			</asp:DropDownList>
+			Year:
+			<asp:DropDownList runat="server" ID="ddlYear" AutoPostBack="true" OnSelectedIndexChanged="ddlYear_SelectedIndexChanged">
+				<asp:ListItem></asp:ListItem>
+				<asp:ListItem Value="1">2020</asp:ListItem>
+			</asp:DropDownList>
+        </div>
+
+		<div class="div_Member font_Main" style="width:350px;border-width:0px">
+					<asp:GridView ID="grdMonthlyExpenses" runat="server" CssClass="mGrid"
+						HeaderStyle-HorizontalAlign="Center"
+						HeaderStyle-BackColor="#ffffff"
+						HeaderStyle-ForeColor="White"
+						RowStyle-BackColor="#c6ffee"
+						RowStyle-ForeColor="White"
+						AlternatingRowStyle-BackColor="LightBlue" Font-Size="Small"
+						HorizontalAlign="Left" 
+						OnSelectedIndexChanged="grdMonthlyExpenses_SelectedIndexChanged" OnRowCreated="grdMonthlyExpenses_RowCreated" OnRowDataBound="grdMonthlyExpenses_RowDataBound"
+						OnPageIndexChanging="grdMonthlyExpenses_PageIndexChanging"
+						AutoGenerateColumns="True" 
+						AllowPaging="true"
+						PagerSettings-FirstPageText="First" PagerSettings-PageButtonCount="2" PageSize="10" AllowSorting="True" 
+						PagerSettings-Mode="NumericFirstLast" PagerSettings-LastPageText="Last" PagerSettings-NextPageText="&gt;" 
+						PagerSettings-PreviousPageText="&lt;" PagerStyle-BorderStyle="None" ForeColor="Black">
+
+					</asp:GridView>
+
+		</div>
     </form>
 </body>
 </html>

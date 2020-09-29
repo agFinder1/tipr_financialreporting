@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AnnualSummary.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -113,6 +114,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="ExpenseIncomeReporting.aspx" />
+    <Content Include="Expenses_Annual.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -125,6 +127,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Income_Annual.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MonthlySummary.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -163,6 +166,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnualSummary.aspx.cs">
+      <DependentUpon>AnnualSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnnualSummary.aspx.designer.cs">
+      <DependentUpon>AnnualSummary.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -187,8 +197,22 @@
     <Compile Include="ExpenseIncomeReporting.aspx.designer.cs">
       <DependentUpon>ExpenseIncomeReporting.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Expenses_Annual.aspx.cs">
+      <DependentUpon>Expenses_Annual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Expenses_Annual.aspx.designer.cs">
+      <DependentUpon>Expenses_Annual.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Income_Annual.aspx.cs">
+      <DependentUpon>Income_Annual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Income_Annual.aspx.designer.cs">
+      <DependentUpon>Income_Annual.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

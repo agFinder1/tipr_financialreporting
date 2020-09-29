@@ -115,7 +115,34 @@ namespace TIPR_FinancialReporting.DataAccess
 			return dt;
 		}
 
-		public static int CreateTransaction(int TransactionTypeId, int TopCategoryId, int SubCategoryId, int Amount, string Notes, DateTime TransactionDate)
+		public static DataSet GetMonthlyExpenseSummary(int monthId, int yearId)
+		{
+			DataSet dt;
+			try
+			{
+				using (SqlConnection cnn = new SqlConnection(ConnString()))
+				{
+					using (SqlCommand cmd = new SqlCommand("GetMonthlyExpenseSummary", cnn))
+					{
+						cmd.Connection.Open();
+						cmd.CommandType = CommandType.StoredProcedure;
+						cmd.Parameters.AddWithValue("monthId", monthId);
+						cmd.Parameters.AddWithValue("yearId", yearId);
+						dt = new DataSet();
+						using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+						{
+							da.Fill(dt);
+							return dt;
+						}
+					}
+				}
+			}
+			catch (Exception ex) { }
+			return null;
+		}
+
+public static int CreateTransaction(int TransactionTypeId, int TopCategoryId, 
+			int SubCategoryId, int Amount, string Notes, DateTime TransactionDate)
 		{
 			int retVal = 0;
 			try
@@ -142,5 +169,6 @@ namespace TIPR_FinancialReporting.DataAccess
 			catch (Exception ex) { string s = ex.Message; }
 			return retVal;
 		}
+
 	}
 }
