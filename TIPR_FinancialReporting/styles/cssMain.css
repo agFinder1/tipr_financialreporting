@@ -49,12 +49,18 @@
 .div_Member {
 	border-radius: 25px;
 	/*border: 2px solid #0094D6;*/
-	border: 2px solid #7D3E1B;
+	/*border: 0px solid #7D3E1B;*/
+	border: 0px solid #ffffff;
 	padding: 20px;
 	background: #ffffff;
 	width: 60%;
 	margin-right: auto;
 	margin-left: auto;
+}
+
+.div_MessageArea {
+	float: right;
+	margin: auto;
 }
 
 .div_Messages {
@@ -75,11 +81,6 @@
 .div_NewStudent {
 	width: 800px;
 	height: 480px;
-}
-
-.div_MessageArea {
-	float: right;
-	margin: auto;
 }
 
 .div_phone {

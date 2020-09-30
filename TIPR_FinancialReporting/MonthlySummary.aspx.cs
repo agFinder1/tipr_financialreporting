@@ -63,7 +63,7 @@ namespace TIPR_FinancialReporting
 
 				grids.Visible = grdMonthlyExpenses.Rows.Count > 0 | grdMonthlyIncome.Rows.Count > 0;
 			}
-			catch (Exception ex) { }
+			catch (Exception ex) { grids.Visible = false; }
 		}
 
 		protected void grdMonthlyExpenses_RowDataBound(object sender, GridViewRowEventArgs e)
