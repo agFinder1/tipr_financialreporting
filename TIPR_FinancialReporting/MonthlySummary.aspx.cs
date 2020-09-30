@@ -12,9 +12,7 @@ namespace TIPR_FinancialReporting
 	public partial class MonthlySummary : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
-		{
-
-		}
+		{ }
 
 
 		private void GetMonthlySummary_Expenses(int monthId, int yearId)
@@ -69,7 +67,6 @@ namespace TIPR_FinancialReporting
 		protected void grdMonthlyExpenses_RowDataBound(object sender, GridViewRowEventArgs e)
 		{
 		}
-
 
 	}
 }

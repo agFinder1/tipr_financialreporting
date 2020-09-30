@@ -21,6 +21,56 @@ namespace TIPR_FinancialReporting.DataAccess
 			return ConfigurationManager.ConnectionStrings["main"].ToString();
 		}
 
+		public static DataTable GetAnnualExpenseSummary(int yearId)
+		{
+			DataTable dt;
+			try
+			{
+				using (SqlConnection cnn = new SqlConnection(ConnString()))
+				{
+					using (SqlCommand cmd = new SqlCommand("GetAnnualExpenseSummary", cnn))
+					{
+						cmd.Connection.Open();
+						cmd.CommandType = CommandType.StoredProcedure;
+						cmd.Parameters.AddWithValue("yearId", yearId);
+						dt = new DataTable();
+						using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+						{
+							da.Fill(dt);
+							return dt;
+						}
+					}
+				}
+			}
+			catch (Exception ex) { }
+			return null;
+		}
+
+		public static DataTable GetAnnualIncomeSummary(int yearId)
+		{
+			DataTable dt;
+			try
+			{
+				using (SqlConnection cnn = new SqlConnection(ConnString()))
+				{
+					using (SqlCommand cmd = new SqlCommand("GetAnnualIncomeSummary", cnn))
+					{
+						cmd.Connection.Open();
+						cmd.CommandType = CommandType.StoredProcedure;
+						cmd.Parameters.AddWithValue("yearId", yearId);
+						dt = new DataTable();
+						using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+						{
+							da.Fill(dt);
+							return dt;
+						}
+					}
+				}
+			}
+			catch (Exception ex) { }
+			return null;
+		}
+
 		public static DataTable GetExpenseCategoryHeadings()
 		{
 			DataTable dt = new DataTable();

@@ -5,10 +5,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <body>
-	<br />
 	<asp:UpdatePanel ID="pnl1" runat="server">
 		<ContentTemplate>
 			<div class="div_Member font_Main" style="width:350px;border-width:0px">	
+				<asp:Table HorizontalAlign="Center" runat="server">
+					<asp:TableRow>
+						<asp:TableCell HorizontalAlign="Center">
+							<label style="font-size:18px">Monthly Summary</label>
+						</asp:TableCell>
+					</asp:TableRow>
+				</asp:Table>
 				<label style="margin-bottom:18px">Select a month and year:</label> 
 				<br />
 				Month: 
