@@ -1,15 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ExpenseIncomeReporting.aspx.cs" Inherits="TIPR_FinancialReporting.ExpenseIncomeReporting" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ExpenseIncomeReporting.aspx.cs" MasterPageFile="~/Site.Master" Inherits="TIPR_FinancialReporting.ExpenseIncomeReporting" %>
+
+<asp:Content runat="server" ContentPlaceHolderID="MainContent">
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-	<link rel="stylesheet" href="styles/cssMain.css" />
-</head>
 <body>
-    <form id="form1" runat="server">
-	<asp:ScriptManager runat="server" ID="mgr1"></asp:ScriptManager>
 
 		<div id="divExpenses" class="div_Member font_Main" style="width:230px">
 			<asp:UpdatePanel runat="server" ID="pnl2">
@@ -110,6 +106,6 @@
 			</asp:Table>
 		</div>
 		<asp:Timer ID="tmrLabels" runat="server" Interval="4000" OnTick="tmrLabels_Tick" Enabled="false" />
-    </form>
 </body>
 </html>
+</asp:Content>

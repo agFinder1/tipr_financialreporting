@@ -1,24 +1,16 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MonthlySummary.aspx.cs" Inherits="TIPR_FinancialReporting.MonthlySummary" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MonthlySummary.aspx.cs" MasterPageFile="~/Site.Master" Inherits="TIPR_FinancialReporting.MonthlySummary" %>
 
+<asp:Content runat="server" ContentPlaceHolderID="MainContent">
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-	<link rel="stylesheet" href="styles/cssMain.css" />
-</head>
 <body>
-    <form id="form1" runat="server">
-        <div class="div_Member font_Main" style="width:350px;border-width:0px" >
-			<a href="Expenses_Annual.aspx">Annual Expenses</a>&nbsp;
-			<a href="Income_Annual.aspx">Annual Income</a>&nbsp;
-			<a href="AnnualSummary.aspx">Annual Summary</a>
-        </div>
+	<br />
         <div class="div_Member font_Main" style="width:350px">
 			<label style="margin-bottom:18px">Select a month and year:</label> 
 			<br />
 			Month: 
-			<asp:DropDownList runat="server" ID="ddlMonth" AutoPostBack="true" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
+			<asp:DropDownList runat="server" ID="ddlMonth" AutoPostBack="true" OnSelectedIndexChanged="GetMonthlySummaries">
 				<asp:ListItem></asp:ListItem>
 				<asp:ListItem Value ="1">January</asp:ListItem>
 				<asp:ListItem Value ="2">February</asp:ListItem>
@@ -34,25 +26,21 @@
 				<asp:ListItem Value ="12">December</asp:ListItem>
 			</asp:DropDownList>
 			Year:
-			<asp:DropDownList runat="server" ID="ddlYear" AutoPostBack="true" OnSelectedIndexChanged="ddlYear_SelectedIndexChanged">
+			<asp:DropDownList runat="server" ID="ddlYear" AutoPostBack="true" OnSelectedIndexChanged="GetMonthlySummaries">
 				<asp:ListItem></asp:ListItem>
 				<asp:ListItem Value="1">2020</asp:ListItem>
 			</asp:DropDownList>
         </div>
 
 		<div id="grids" runat="server" visible="false" class="div_Member font_Main" style="width:350px;border-width:0px">
-			Expenses:<br />
-					<asp:GridView ID="grdMonthlyExpenses" runat="server" CssClass="mGrid" ShowHeader="false" GridLines="None"
-						OnRowDataBound="grdMonthlyExpenses_RowDataBound"
-					>
+			Expenses:&nbsp;&nbsp;&nbsp;<label runat="server" id="lblExpenseTotal"></label><br />
+					<asp:GridView ID="grdMonthlyExpenses" runat="server" CssClass="mGrid" ShowHeader="false" GridLines="None" OnRowDataBound="grdMonthlyExpenses_RowDataBound">
 					</asp:GridView>
 			<br /><br />
-			Income:<br />
-					<asp:GridView ID="grdMonthlyIncome" runat="server" CssClass="mGrid" ShowHeader="false" GridLines="None"
-						OnRowDataBound="grdMonthlyExpenses_RowDataBound"
-					>
+			Income:&nbsp;&nbsp;&nbsp;<label runat="server" id="lblIncomeTotal"></label><br />
+					<asp:GridView ID="grdMonthlyIncome" runat="server" CssClass="mGrid" ShowHeader="false" GridLines="None">
 					</asp:GridView>
 		</div>
-    </form>
 </body>
 </html>
+</asp:Content>

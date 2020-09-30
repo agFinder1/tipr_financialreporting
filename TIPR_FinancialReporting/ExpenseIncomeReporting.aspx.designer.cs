@@ -13,24 +13,6 @@ namespace TIPR_FinancialReporting {
     public partial class ExpenseIncomeReporting {
         
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// mgr1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager mgr1;
-        
-        /// <summary>
         /// pnl2 control.
         /// </summary>
         /// <remarks>

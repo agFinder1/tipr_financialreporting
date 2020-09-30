@@ -13,11 +13,9 @@ namespace TIPR_FinancialReporting
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (!IsPostBack)
-			{
 
-			}
 		}
+
 
 		private void GetMonthlySummary_Expenses(int monthId, int yearId)
 		{
@@ -31,45 +29,47 @@ namespace TIPR_FinancialReporting
 			grdMonthlyIncome.DataBind();
 		}
 
-		protected void ddlMonth_SelectedIndexChanged(object sender, EventArgs e)
+		protected void GetMonthlySummaries(object sender, EventArgs e)
 		{
 			try
 			{
+				int total = 0;
 				grdMonthlyExpenses.DataSource = null;
 				grdMonthlyExpenses.DataBind();
+				grdMonthlyIncome.DataSource = null;
+				grdMonthlyIncome.DataBind();
+
 				GetMonthlySummary_Expenses(Convert.ToInt16(ddlMonth.SelectedValue), Convert.ToInt16(ddlYear.SelectedItem.Text));
 				GetMonthySummary_Income(Convert.ToInt16(ddlMonth.SelectedValue), Convert.ToInt16(ddlYear.SelectedItem.Text));
+
+				for(int i = 0; i < grdMonthlyExpenses.Rows.Count; i++)
+				{
+					if(grdMonthlyExpenses.Rows[i].Cells[2].Text.All(char.IsNumber))
+					{
+						total += Convert.ToInt32(grdMonthlyExpenses.Rows[i].Cells[2].Text);
+					}
+				}
+				lblExpenseTotal.InnerText = "$" + total.ToString();
+				total = 0;
+
+				for (int i = 0; i < grdMonthlyIncome.Rows.Count; i++)
+				{
+					if (grdMonthlyIncome.Rows[i].Cells[2].Text.All(char.IsNumber))
+					{
+						total += Convert.ToInt32(grdMonthlyIncome.Rows[i].Cells[2].Text);
+					}		
+				}
+				lblIncomeTotal.InnerText = "$" + total.ToString();
+
 				grids.Visible = grdMonthlyExpenses.Rows.Count > 0 | grdMonthlyIncome.Rows.Count > 0;
 			}
 			catch (Exception ex) { }
 		}
 
-		protected void ddlYear_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			if (Convert.ToInt16(ddlMonth.SelectedValue) > 0 & Convert.ToInt16(ddlYear.SelectedValue) > 0)
-			{
-				GetMonthlySummary_Expenses(Convert.ToInt16(ddlMonth.SelectedValue), Convert.ToInt16(ddlYear.SelectedItem.Text));
-			}
-		}
-
-		protected void grdMonthlyExpenses_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		protected void grdMonthlyExpenses_RowCreated(object sender, GridViewRowEventArgs e)
-		{
-
-		}
-
 		protected void grdMonthlyExpenses_RowDataBound(object sender, GridViewRowEventArgs e)
 		{
-			e.Row.BorderStyle = BorderStyle.None;
 		}
 
-		protected void grdMonthlyExpenses_PageIndexChanging(object sender, GridViewPageEventArgs e)
-		{
 
-		}
 	}
 }

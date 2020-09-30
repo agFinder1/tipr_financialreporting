@@ -14,7 +14,7 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+	<link rel="stylesheet" href="styles/cssMain.css" />
 </head>
 <body>
     <form runat="server">
@@ -37,7 +37,13 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-
+		<br />
+		<asp:Menu runat="server" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="12" StaticMenuItemStyle-CssClass="font_Main" ID="menu_main">
+			<Items>
+				<asp:MenuItem Text="Monthly Summary" NavigateUrl="~/MonthlySummary.aspx"></asp:MenuItem>
+				<asp:MenuItem Text="Annual Summary" NavigateUrl="~/AnnualSummary.aspx"></asp:MenuItem>
+			</Items>
+		</asp:Menu>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -62,7 +68,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p></p>
             </footer>
         </div>
 
