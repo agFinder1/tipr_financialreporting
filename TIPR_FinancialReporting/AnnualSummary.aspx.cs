@@ -33,7 +33,7 @@ namespace TIPR_FinancialReporting
 						total += Convert.ToInt32(grdMonthlyExpenses.Rows[i].Cells[1].Text);
 					}
 				}
-				lblExpenseTotal.InnerText = "$" + total.ToString();
+				lblExpenseTotal.InnerText = total.ToString("C0", CultureInfo.CurrentCulture);
 				total = 0;
 
 				for (int i = 0; i < grdMonthlyIncome.Rows.Count; i++)
@@ -43,7 +43,7 @@ namespace TIPR_FinancialReporting
 						total += Convert.ToInt32(grdMonthlyIncome.Rows[i].Cells[1].Text);
 					}
 				}
-				lblIncomeTotal.InnerText = "$" + total.ToString();
+				lblIncomeTotal.InnerText = total.ToString("C0", CultureInfo.CurrentCulture);
 
 				grids.Visible = grdMonthlyExpenses.Rows.Count > 0 | grdMonthlyIncome.Rows.Count > 0;
 

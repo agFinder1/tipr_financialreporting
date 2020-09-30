@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using TIPR_FinancialReporting.DataAccess;
+using System.Globalization;
 
 namespace TIPR_FinancialReporting
 {
@@ -47,7 +48,7 @@ namespace TIPR_FinancialReporting
 						total += Convert.ToInt32(grdMonthlyExpenses.Rows[i].Cells[2].Text);
 					}
 				}
-				lblExpenseTotal.InnerText = "$" + total.ToString();
+				lblExpenseTotal.InnerText = total.ToString("C0", CultureInfo.CurrentCulture);
 				total = 0;
 
 				for (int i = 0; i < grdMonthlyIncome.Rows.Count; i++)
@@ -57,7 +58,7 @@ namespace TIPR_FinancialReporting
 						total += Convert.ToInt32(grdMonthlyIncome.Rows[i].Cells[2].Text);
 					}		
 				}
-				lblIncomeTotal.InnerText = "$" + total.ToString();
+				lblIncomeTotal.InnerText = total.ToString("C0", CultureInfo.CurrentCulture);
 
 				grids.Visible = grdMonthlyExpenses.Rows.Count > 0 | grdMonthlyIncome.Rows.Count > 0;
 			}
