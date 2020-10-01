@@ -21,7 +21,9 @@ namespace TIPR_FinancialReporting
 			try
 			{
 				int total = 0;
-				grdMonthlyExpenses.DataSource = Data.GetAnnualExpenseSummary(Convert.ToInt16(ddlYear.SelectedValue));
+				//grdMonthlyExpenses.DataSource = Data.GetAnnualExpenseOrIncomeSummary(Convert.ToInt16(ddlYear.SelectedValue), 1);
+				//grdMonthlyIncome.DataSource = Data.GetAnnualExpenseOrIncomeSummary(Convert.ToInt16(ddlYear.SelectedValue), 2);+
+				grdMonthlyExpenses.DataSource = Data.GetAnnuaExpenseSummary(Convert.ToInt16(ddlYear.SelectedValue));
 				grdMonthlyIncome.DataSource = Data.GetAnnualIncomeSummary(Convert.ToInt16(ddlYear.SelectedValue));
 				grdMonthlyExpenses.DataBind();
 				grdMonthlyIncome.DataBind();

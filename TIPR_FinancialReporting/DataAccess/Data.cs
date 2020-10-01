@@ -21,7 +21,35 @@ namespace TIPR_FinancialReporting.DataAccess
 			return ConfigurationManager.ConnectionStrings["main"].ToString();
 		}
 
-		public static DataTable GetAnnualExpenseSummary(int yearId)
+		// jsr: 10/1/20 - dt has all nulls in 'total' column (2nd col.)? Sproc returns data as expected.
+		//
+		//public static DataTable GetAnnualExpenseOrIncomeSummary(int yearId, int transactionTypeId)
+		//{
+		//	DataTable dt;
+		//	try
+		//	{
+		//		using (SqlConnection cnn = new SqlConnection(ConnString()))
+		//		{
+		//			using (SqlCommand cmd = new SqlCommand("GetAnnualExpenseOrIncomeSummary", cnn))
+		//			{
+		//				cmd.Connection.Open();
+		//				cmd.CommandType = CommandType.StoredProcedure;
+		//				cmd.Parameters.AddWithValue("yearId", yearId);
+		//				cmd.Parameters.AddWithValue("transactionTypeId", transactionTypeId);
+		//				dt = new DataTable();
+		//				using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+		//				{
+		//					da.Fill(dt);
+		//					return dt;
+		//				}
+		//			}
+		//		}
+		//	}
+		//	catch (Exception ex) { }
+		//	return null;
+		//}
+
+		public static DataTable GetAnnuaExpenseSummary(int yearId)
 		{
 			DataTable dt;
 			try
@@ -165,19 +193,20 @@ namespace TIPR_FinancialReporting.DataAccess
 			return dt;
 		}
 
-		public static DataTable GetMonthlyExpenseSummary(int monthId, int yearId)
+		public static DataTable GetMonthlyIncomeOrExpenseSummary(int monthId, int yearId, int transactionTypeId)
 		{
 			DataTable dt;
 			try
 			{
 				using (SqlConnection cnn = new SqlConnection(ConnString()))
 				{
-					using (SqlCommand cmd = new SqlCommand("GetMonthlyExpenseSummary", cnn))
+					using (SqlCommand cmd = new SqlCommand("GetMonthlyIncomeOrExpenseSummary", cnn))
 					{
 						cmd.Connection.Open();
 						cmd.CommandType = CommandType.StoredProcedure;
 						cmd.Parameters.AddWithValue("monthId", monthId);
 						cmd.Parameters.AddWithValue("yearId", yearId);
+						cmd.Parameters.AddWithValue("transactionTypeId", transactionTypeId);
 						dt = new DataTable();
 						using (SqlDataAdapter da = new SqlDataAdapter(cmd))
 						{
@@ -190,33 +219,6 @@ namespace TIPR_FinancialReporting.DataAccess
 			catch (Exception ex) { }
 			return null;
 		}
-
-		public static DataTable GetMonthlyIncomeSummary(int monthId, int yearId)
-		{
-			DataTable dt;
-			try
-			{
-				using (SqlConnection cnn = new SqlConnection(ConnString()))
-				{
-					using (SqlCommand cmd = new SqlCommand("GetMonthlyIncomeSummary", cnn))
-					{
-						cmd.Connection.Open();
-						cmd.CommandType = CommandType.StoredProcedure;
-						cmd.Parameters.AddWithValue("monthId", monthId);
-						cmd.Parameters.AddWithValue("yearId", yearId);
-						dt = new DataTable();
-						using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-						{
-							da.Fill(dt);
-							return dt;
-						}
-					}
-				}
-			}
-			catch (Exception ex) { }
-			return null;
-		}
-
 
 		public static int CreateTransaction(int TransactionTypeId, int TopCategoryId, 
 			int SubCategoryId, int Amount, string Notes, DateTime TransactionDate)

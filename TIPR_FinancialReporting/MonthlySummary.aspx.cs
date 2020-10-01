@@ -18,13 +18,13 @@ namespace TIPR_FinancialReporting
 
 		private void GetMonthlySummary_Expenses(int monthId, int yearId)
 		{
-			grdMonthlyExpenses.DataSource = Data.GetMonthlyExpenseSummary(monthId, yearId);
+			grdMonthlyExpenses.DataSource = Data.GetMonthlyIncomeOrExpenseSummary(monthId, yearId, 1);
 			grdMonthlyExpenses.DataBind();
 		}
 
 		private void GetMonthySummary_Income(int monthId, int yearId)
 		{
-			grdMonthlyIncome.DataSource = Data.GetMonthlyIncomeSummary(monthId, yearId);
+			grdMonthlyIncome.DataSource = Data.GetMonthlyIncomeOrExpenseSummary(monthId, yearId, 2);
 			grdMonthlyIncome.DataBind();
 		}
 
